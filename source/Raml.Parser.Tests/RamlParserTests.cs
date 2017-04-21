@@ -32,11 +32,11 @@ namespace Raml.Parser.Tests
 
 
 		[Test]
-		[ExpectedException(typeof(FormatException))]
+		//[ExpectedException(typeof(FormatException))]
 		public async Task ShouldThrowError_WhenInvalidRAML()
 		{
 			var parser = new RamlParser();
-            await parser.LoadAsync("Specifications/raml08/invalid.raml");
+            Assert.That(async () => await parser.LoadAsync("Specifications/raml08/invalid.raml"), Throws.TypeOf<FormatException>());
 		}
 
         [Test]
@@ -53,7 +53,7 @@ namespace Raml.Parser.Tests
             }
         }
 
-		[Test, Ignore]
+		[Test, Ignore("?")]
 		public async Task ShouldLoad_WhenAnnotationsTargets()
 		{
 			var parser = new RamlParser();
@@ -62,7 +62,7 @@ namespace Raml.Parser.Tests
 			Assert.AreEqual(2, raml.Resources.Count());
 		}
 
-        [Test, Ignore]
+        [Test, Ignore("?")]
         public async Task ShouldLoad_WhenAnnotations()
         {
             var parser = new RamlParser();
@@ -215,7 +215,7 @@ namespace Raml.Parser.Tests
             Assert.AreEqual("string", raml.Types["Customer"].Object.Properties["Company"].Type);
         }
 
-        [Test, Ignore]
+        [Test, Ignore("?")]
         public async Task ShouldHandleOverlay()
         {
             var parser = new RamlParser();
@@ -247,7 +247,7 @@ namespace Raml.Parser.Tests
             Assert.IsFalse(string.IsNullOrWhiteSpace(raml.Types["ItemsType"].External.Xml));
         }
 
-        [Test, Ignore]
+        [Test, Ignore("?")]
         public async Task ShouldBuild_SalesOrder()
         {
             var parser = new RamlParser();
