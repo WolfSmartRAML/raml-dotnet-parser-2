@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
+using Newtonsoft.Json;
 
 namespace Raml.Parser.Expressions
 {
@@ -33,6 +34,7 @@ namespace Raml.Parser.Expressions
 			this.dynamicRaml = dynamicRaml;
 		}
 
+        [JsonIgnore]
 		public IDictionary<string, object> RawContent { get { return dynamicRaml; } }
 
 		public string BaseUri { get; set; }
