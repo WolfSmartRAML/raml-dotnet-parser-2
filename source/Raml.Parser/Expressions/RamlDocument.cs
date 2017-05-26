@@ -11,7 +11,7 @@ namespace Raml.Parser.Expressions
 
 		public RamlDocument()
 		{
-		    RamlVersion = RamlVersion.Version08;
+		    RamlVersion = RamlVersion.Version1; // AKS is this enum used?
 			Resources = new Collection<Resource>();
 			Documentation = new Collection<DocumentationItem>();
 			BaseUriParameters = new Dictionary<string, Parameter>();
